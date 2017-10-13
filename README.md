@@ -72,4 +72,4 @@ A nicer version of vim is also installed, use :PluginInstall to install the plug
 
 # Credits
 
-Thanks to [xx](https://github.com/alexholmes) for the silent eclipse install script.
+Thanks to [Budhaditya](https://github.com/budhash) for the [silent eclipse](https://github.com/budhash/install-eclipse) install script.
