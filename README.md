@@ -20,7 +20,7 @@ This is a vagrant project to build and spin up a VM with the following: -
 
 1. [Download and install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. [Download and install Vagrant](http://www.vagrantup.com/downloads.html).
-3. Go to [releases](https://github.com/martinprobson/dev-machine/releases) and download and extract the latest source of this project.
+3. Go to [releases](https://github.com/martinprobson/vagrant-dev-machine/releases) and download and extract the latest source of this project.
 5. In your terminal change your directory into the project directory (i.e. `cd dev-machine` )
 6. Run ```vagrant up``` to create the VM.
 7. Execute ```vagrant ssh``` to login to the VM or login to XFCE via virtualbox.
