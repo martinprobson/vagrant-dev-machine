@@ -1,3 +1,12 @@
 #!/bin/sh
-[[ ":$PATH:" != *":/home/ubuntu/miniconda/bin:"* ]] && export PATH="$PATH:/home/ubuntu/miniconda/bin"
+pathmunge () {
+	if ! echo "$PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
+           if [ "$2" = "after" ] ; then
+              PATH="$PATH:$1"
+           else
+              PATH="$1:$PATH"
+           fi
+        fi
+}
+pathmunge /home/ubuntu/miniconda/bin
 source /home/ubuntu/miniconda/bin/activate

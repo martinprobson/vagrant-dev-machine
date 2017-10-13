@@ -34,6 +34,7 @@ setupVIM () {
 	echo "setup VIM GTK"
 	apt-get -y remove vim.tiny
 	apt-get install -y vim-gtk
+	mkdir -p $VIM_RES_DIR/vimdir
 	tar xf $VIM_RES_DIR/vim.tar.gz -C $VIM_RES_DIR/vimdir
 	cp -R $VIM_RES_DIR/vimdir /home/ubuntu/.vim
 	cp $VIM_RES_DIR/vimrc /home/ubuntu/.vimrc
@@ -49,3 +50,4 @@ for func in "${funcs[@]}"
 do
 	$func || fail $func
 done
+

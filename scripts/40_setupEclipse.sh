@@ -16,20 +16,13 @@ changeOwner () {
 setupPath () {
 	echo "setup eclipse path"
 	cp ${ECLIPSE_RES_DIR}/eclipse.sh /etc/profile.d/.
-	source /etc/profile.d/eclipse.sh
-	echo "export PATH=\$PATH:${ECLIPSE_TARGET}" >> /home/ubuntu/.bashrc
-}
-
-addMenuItem () {
-	mkdir -p /user/ubuntu/.local/share/applications
-	chown -R ubuntu:ubuntu /user/ubuntu/.local/share
-	cp ${ECLIPSE_DESKTOP_ENTRY} /user/ubuntu/.local/share/applications/.
+	echo 'source /etc/profile.d/eclipse.sh' >> /home/ubuntu/.bahsrc
 }
 
 
 echo "setup Eclipse"
 
-funcs=(installEclipse changeOwner setupPath addMenuItem)
+funcs=(installEclipse changeOwner setupPath )
 
 for func in "${funcs[@]}"
 do
