@@ -8,6 +8,7 @@ This is a vagrant project to build and spin up a VM with the following: -
 * Ubuntu 16.04 base box
 * Java 8 (OpenJDK)
 * XFCE4 desktop
+* Apache Spark (2.1.1)
 * Eclipse Oxygen with: -
     - Scala IDE
     - Java IDE
