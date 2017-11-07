@@ -55,3 +55,11 @@ MINICONDA_ARCHIVE=${MINICONDA_MAJOR_VERSION}-${MINICONDA_VERSION}-${MINICONDA_AR
 MINICONDA_INSTALL_LOCATION=/home/ubuntu/miniconda
 MINICONDA_INSTALLER=/vagrant/resources/miniconda/miniconda.sh
 MINICONDA_PROFILE=/vagrant/resources/miniconda/miniconda-profile.sh
+
+# spark
+SPARK_VERSION=spark-2.1.1
+SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.tgz
+SPARK_MIRROR_DOWNLOAD=http://archive.apache.org/dist/spark/$SPARK_VERSION/$SPARK_VERSION-bin-hadoop2.7.tgz
+SPARK_RES_DIR=/vagrant/resources/spark
+SPARK_CONF_DIR=/usr/local/spark/conf
+

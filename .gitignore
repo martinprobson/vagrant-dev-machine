@@ -1,4 +1,6 @@
+deploy/
 resources/vim/vimdir
 resources/miniconda/miniconda.sh
 .vagrant
 *.log
+*.tgz

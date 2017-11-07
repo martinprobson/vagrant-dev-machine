@@ -65,6 +65,7 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
+  config.vm.network :private_network, ip: '10.211.55.102'
   config.vm.hostname = "devvm"
   config.vm.provision "shell", path: "scripts/10_InstallBasePackages.sh"
   config.vm.provision "shell", path: "scripts/20_setPassword.sh"
@@ -73,5 +74,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "scripts/30_setupJava.sh"
   config.vm.provision "shell", path: "scripts/40_setupEclipse.sh"
   config.vm.provision "shell", path: "scripts/50_setupMiniconda.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/60_setup_spark.sh"
 
 end
