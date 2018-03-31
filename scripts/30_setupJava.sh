@@ -13,7 +13,7 @@ function setupEnvVars {
 	ln -s ${JAVA_HOME} /usr/local/java
 	cp $JAVA_RES_SH /etc/profile.d/java.sh
 	source /etc/profile.d/java.sh
-	echo 'source /etc/profile.d/java.sh' >> /home/ubuntu/.bashrc
+	echo 'source /etc/profile.d/java.sh' >> /home/${USER}/.bashrc_local
 }
 
 function setupMysqlConnector {

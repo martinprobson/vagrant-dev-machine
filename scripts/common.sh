@@ -28,6 +28,9 @@ fileExists () {
 	fi
 }
 
+# User
+USER=vagrant
+
 # xfce4
 XFCE4_PROFILE=/vagrant/resources/xfce4/xfce4.sh
 
@@ -42,7 +45,7 @@ JAVA_RES_SH=/vagrant/resources/java/java.sh
 
 # eclipse IDE
 ECLIPSE_RES_DIR=/vagrant/resources/eclipse
-ECLIPSE_TARGET=/home/ubuntu/eclipse
+ECLIPSE_TARGET=/home/${USER}/eclipse
 ECLIPSE_DESKTOP_ENTRY=${ECLIPSE_RES_DIR}/eclipse.desktop
 
 
@@ -52,7 +55,7 @@ MINICONDA_VERSION=latest
 MINICONDA_ARCH=Linux-x86_64
 MINICONDA_DOWNLOAD_URL=https://repo.continuum.io/miniconda
 MINICONDA_ARCHIVE=${MINICONDA_MAJOR_VERSION}-${MINICONDA_VERSION}-${MINICONDA_ARCH}.sh
-MINICONDA_INSTALL_LOCATION=/home/ubuntu/miniconda
+MINICONDA_INSTALL_LOCATION=/home/${USER}/miniconda
 MINICONDA_INSTALLER=/vagrant/resources/miniconda/miniconda.sh
 MINICONDA_PROFILE=/vagrant/resources/miniconda/miniconda-profile.sh
 

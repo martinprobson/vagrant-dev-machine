@@ -8,4 +8,4 @@ pathmunge () {
            fi
         fi
 }
-pathmunge /home/ubuntu/eclipse after
+pathmunge /home/${USER}/eclipse after

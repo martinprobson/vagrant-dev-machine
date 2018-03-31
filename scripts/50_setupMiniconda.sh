@@ -10,7 +10,7 @@ getMinicondaInstaller () {
 setupEnv () {
 	echo "setup miniconda environment "
 	sudo cp $MINICONDA_PROFILE /etc/profile.d/.
-	echo 'source /etc/profile.d/miniconda-profile.sh' >> /home/ubuntu/.bashrc
+	echo 'source /etc/profile.d/miniconda-profile.sh' >> /home/${USER}/.bashrc_local
 }
 
 installMiniconda() {
@@ -19,7 +19,7 @@ installMiniconda() {
 	fi
 	echo "Installing miniconda"
 	bash $MINICONDA_INSTALLER -b -p ${MINICONDA_INSTALL_LOCATION}
-	sudo chown -R ubuntu:ubuntu ${MINICONDA_INSTALL_LOCATION}
+	sudo chown -R ${USER}:${USER} ${MINICONDA_INSTALL_LOCATION}
 }
 
 

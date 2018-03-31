@@ -8,5 +8,5 @@ pathmunge () {
            fi
         fi
 }
-pathmunge /home/ubuntu/miniconda/bin
-source /home/ubuntu/miniconda/bin/activate
+pathmunge /home/${USER}/miniconda/bin
+source /home/${USER}/miniconda/bin/activate

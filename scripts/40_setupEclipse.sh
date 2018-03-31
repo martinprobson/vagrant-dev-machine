@@ -9,14 +9,14 @@ installEclipse () {
 
 changeOwner () {
 	echo "Changing owner of eclipse directories"
-	chown -R -L ubuntu:ubuntu ${ECLIPSE_TARGET}
-	chown -R  ubuntu:ubuntu ${ECLIPSE_TARGET}
+	chown -R -L ${USER}:${USER} ${ECLIPSE_TARGET}
+	chown -R  ${USER}:${USER} ${ECLIPSE_TARGET}
 }
 
 setupPath () {
 	echo "setup eclipse path"
 	cp ${ECLIPSE_RES_DIR}/eclipse.sh /etc/profile.d/.
-	echo 'source /etc/profile.d/eclipse.sh' >> /home/ubuntu/.bahsrc
+	echo 'source /etc/profile.d/eclipse.sh' >> /home/${USER}/.bashrc_local
 }
 
 

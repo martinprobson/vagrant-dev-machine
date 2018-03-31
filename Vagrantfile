@@ -12,12 +12,13 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/xenial64"
+  #config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "debian/stretch64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
-  config.vm.box_check_update = false
+  config.vm.box_check_update = true
   config.vm.define :devmachine do |t|
   end
 
@@ -69,11 +70,9 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "devvm"
   config.vm.provision "shell", path: "scripts/10_InstallBasePackages.sh"
   config.vm.provision "shell", path: "scripts/20_setPassword.sh"
-  config.vm.provision "shell", inline: "sudo dpkg-reconfigure xdm"
-  config.vm.provision "shell", inline: "systemctl restart xdm.service"
   config.vm.provision "shell", path: "scripts/30_setupJava.sh"
   config.vm.provision "shell", path: "scripts/40_setupEclipse.sh"
-  config.vm.provision "shell", path: "scripts/50_setupMiniconda.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/50_setupMiniconda.sh", privileged: true
   config.vm.provision "shell", path: "scripts/60_setup_spark.sh"
 
 end

@@ -1,12 +1,11 @@
 #!/bin/bash
 source "/vagrant/scripts/common.sh"
 
-repoUpdate () {
-	echo "Install base ubuntu packages"
-	apt-get update -y -q
-}
-
 installVBGuest () {
+	echo "Add contrib repo"
+	echo "deb http://ftp.debian.org/debian stretch-backports main contrib" >> /etc/apt/sources.list
+	echo "Update"
+	apt-get update -y -q
 	echo "Install virtualbox guest additions"
 	apt-get install -y -q virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 }
@@ -14,37 +13,35 @@ installVBGuest () {
 
 setupXfce4 () {
 	echo "Install XFCE4"
-	apt-get install -y -q xfce4 xdm xfce4-terminal 
-	echo "Remove xterm"
-	apt-get remove -y -q xterm
-	dpkg-reconfigure xdm
-	cat ${XFCE4_PROFILE} >> /home/ubuntu/.bashrc
+	apt-get install -y -q xfce4 terminator
+	cat ${XFCE4_PROFILE} >> /home/${USER}/.bashrc_local
 }
 
 installOthers () {
-	echo "Install firefox"
-	apt-get -y -q install firefox
+	echo "Install iceweasel"
+	apt-get -y -q install iceweasel 
 	echo "Install vim-gtk"
-	apt-get -y -q install vim-gtk
-	echo "expect"
-	apt-get -y -q install expect
-}
-
-setupVIM () {
-	echo "setup VIM GTK"
 	apt-get -y remove vim.tiny
 	apt-get install -y vim-gtk
-	mkdir -p $VIM_RES_DIR/vimdir
-	tar xf $VIM_RES_DIR/vim.tar.gz -C $VIM_RES_DIR/vimdir
-	cp -R $VIM_RES_DIR/vimdir /home/ubuntu/.vim
-	cp $VIM_RES_DIR/vimrc /home/ubuntu/.vimrc
-	chown -R ubuntu:ubuntu .vim .vimrc
-	# Set bash vim mode
-	echo "set -o vi" >> /home/ubuntu/.bashrc
-	echo "export TERM=xterm-256color" >> /home/ubuntu/.bashrc
+	echo "expect"
+	apt-get -y -q install expect
+	echo "git stow curl"
+	apt-get -y -q install git stow curl
 }
 
-funcs=(repoUpdate installVBGuest setupXfce4 installOthers setupVIM)
+setupDefaults () {
+	cd /home/${USER}
+	git clone https://github.com/martinprobson/dotfiles.git
+	sudo chown -R ${USER}:${USER} /home/${USER}/dotfiles
+	rm -f /home/${USER}/.bashrc
+	cd /home/${USER}/dotfiles
+	stow vim
+	stow bash
+	stow terminator
+	stow fonts
+}
+
+funcs=(installVBGuest setupXfce4 installOthers setupDefaults)
 
 for func in "${funcs[@]}"
 do
