@@ -1,11 +1,16 @@
 #!/bin/bash
 source "/vagrant/scripts/common.sh"
 
+upgradeBase () {
+	echo "Update base system"
+	apt-get -y -q update
+	apt-get -y -q upgrade
+	echo "Update base system - Done!"
+}
+
 installVBGuest () {
-	echo "Add contrib repo"
-	echo "deb http://ftp.debian.org/debian stretch-backports main contrib" >> /etc/apt/sources.list
-	echo "Update"
-	apt-get update -y -q
+	echo "Install Build tools"
+	apt-get install -y -q linux-headers-$(uname -r) build-essential dkms
 	echo "Install virtualbox guest additions"
 	apt-get install -y -q virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 }
@@ -18,8 +23,8 @@ setupXfce4 () {
 }
 
 installOthers () {
-	echo "Install iceweasel"
-	apt-get -y -q install iceweasel 
+	echo "Install firefox"
+	apt-get -y -q install firefox
 	echo "Install vim-gtk"
 	apt-get -y remove vim.tiny
 	apt-get install -y vim-gtk
@@ -27,8 +32,6 @@ installOthers () {
 	apt-get -y -q install expect
 	echo "git stow curl"
 	apt-get -y -q install git stow curl
-	echo "dirmngr"
-	apt-get -y -q install dirmngr --install-recommends
 }
 
 setupDefaults () {
@@ -44,16 +47,12 @@ setupDefaults () {
 }
 
 setupIcons () {
-	echo "Add contrib repo"
-	echo "deb http://ppa.launchpad.net/papirus/papirus/ubuntu xenial main " >> /etc/apt/sources.list
-	echo "Add repo key"
-	apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
 	echo "Install Icons"
 	apt-get -y -q update
-	apt-get -y -q install papirus-icon-theme
+	apt-get -y -q install papirus-icon-theme fonts-liberation
 }
 
-funcs=(installVBGuest setupXfce4 installOthers setupDefaults setupIcons)
+funcs=(upgradeBase installVBGuest setupXfce4 installOthers setupDefaults setupIcons)
 
 for func in "${funcs[@]}"
 do

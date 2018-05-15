@@ -5,14 +5,14 @@ Vagrant dev machine for scala/java/python
 
 This is a vagrant project to build and spin up a VM with the following: -
 
-* Debian Stretch base box
+* Ubuntu 18.04 
 * Java 8 (OpenJDK)
 * XFCE4 desktop
 * Apache Spark (2.3.3)
 * IntelliJ : -
     - Scala IDE
     - pycharm
-* Firefox (Iceweasel)
+* Firefox 
 * Python (3) Miniconda installation
 
 # Getting Started

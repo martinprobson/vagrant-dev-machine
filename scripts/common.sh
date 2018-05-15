@@ -54,7 +54,7 @@ MINICONDA_INSTALLER=/vagrant/resources/miniconda/miniconda.sh
 MINICONDA_PROFILE=/vagrant/resources/miniconda/miniconda-profile.sh
 
 # spark
-SPARK_VERSION=spark-2.3.3
+SPARK_VERSION=spark-2.3.0
 SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.tgz
 SPARK_MIRROR_DOWNLOAD=http://archive.apache.org/dist/spark/$SPARK_VERSION/$SPARK_VERSION-bin-hadoop2.7.tgz
 SPARK_RES_DIR=/vagrant/resources/spark
