@@ -27,6 +27,8 @@ installOthers () {
 	apt-get -y -q install expect
 	echo "git stow curl"
 	apt-get -y -q install git stow curl
+	echo "dirmngr"
+	apt-get -y -q install dirmngr --install-recommends
 }
 
 setupDefaults () {
@@ -41,7 +43,17 @@ setupDefaults () {
 	stow fonts
 }
 
-funcs=(installVBGuest setupXfce4 installOthers setupDefaults)
+setupIcons () {
+	echo "Add contrib repo"
+	echo "deb http://ppa.launchpad.net/papirus/papirus/ubuntu xenial main " >> /etc/apt/sources.list
+	echo "Add repo key"
+	apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
+	echo "Install Icons"
+	apt-get -y -q update
+	apt-get -y -q install papirus-icon-theme
+}
+
+funcs=(installVBGuest setupXfce4 installOthers setupDefaults setupIcons)
 
 for func in "${funcs[@]}"
 do

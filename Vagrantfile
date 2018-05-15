@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "scripts/10_InstallBasePackages.sh"
   config.vm.provision "shell", path: "scripts/20_setPassword.sh"
   config.vm.provision "shell", path: "scripts/30_setupJava.sh"
-  config.vm.provision "shell", path: "scripts/40_setupEclipse.sh"
+  config.vm.provision "shell", path: "scripts/40_setupIntelliJ.sh", privileged: true
   config.vm.provision "shell", path: "scripts/50_setupMiniconda.sh", privileged: true
   config.vm.provision "shell", path: "scripts/60_setup_spark.sh"
 

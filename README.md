@@ -8,14 +8,12 @@ This is a vagrant project to build and spin up a VM with the following: -
 * Debian Stretch base box
 * Java 8 (OpenJDK)
 * XFCE4 desktop
-* Apache Spark (2.1.1)
-* Eclipse Oxygen with: -
+* Apache Spark (2.3.3)
+* IntelliJ : -
     - Scala IDE
-    - Java IDE
-    - pydev
-    - Eclipse colour theme plugin
+    - pycharm
 * Firefox (Iceweasel)
-* Python Miniconda installation
+* Python (3) Miniconda installation
 
 # Getting Started
 

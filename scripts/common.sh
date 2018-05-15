@@ -43,12 +43,6 @@ JAVA_MYSQL_CONNECTOR_JAR=mysql-connector-java-${JAVA_MYSQL_CONNECTOR_VERSION}.ja
 JAVA_MYSQL_CONNECTOR_DOWNLOAD=http://central.maven.org/maven2/mysql/mysql-connector-java/${JAVA_MYSQL_CONNECTOR_VERSION}/mysql-connector-java-${JAVA_MYSQL_CONNECTOR_VERSION}.jar
 JAVA_RES_SH=/vagrant/resources/java/java.sh
 
-# eclipse IDE
-ECLIPSE_RES_DIR=/vagrant/resources/eclipse
-ECLIPSE_TARGET=/home/${USER}/eclipse
-ECLIPSE_DESKTOP_ENTRY=${ECLIPSE_RES_DIR}/eclipse.desktop
-
-
 # miniconda 
 MINICONDA_MAJOR_VERSION=Miniconda3
 MINICONDA_VERSION=latest
@@ -60,7 +54,7 @@ MINICONDA_INSTALLER=/vagrant/resources/miniconda/miniconda.sh
 MINICONDA_PROFILE=/vagrant/resources/miniconda/miniconda-profile.sh
 
 # spark
-SPARK_VERSION=spark-2.1.1
+SPARK_VERSION=spark-2.3.3
 SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.tgz
 SPARK_MIRROR_DOWNLOAD=http://archive.apache.org/dist/spark/$SPARK_VERSION/$SPARK_VERSION-bin-hadoop2.7.tgz
 SPARK_RES_DIR=/vagrant/resources/spark
