@@ -23,7 +23,7 @@ installMiniconda() {
 }
 
 
-echo "setup minconda"
+echo "setup miniconda"
 
 funcs=(installMiniconda setupEnv)
 
